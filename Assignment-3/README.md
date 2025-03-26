@@ -31,4 +31,6 @@ This repository contains class diagram exercises focused on entity-relationship 
 The diagrams for these exercises have been created using [Eraser.io](https://app.eraser.io/). You can view and edit them using the following link:
 
 [View Bushra's ER Diagrams on Eraser.io](https://app.eraser.io/workspace/mHp1buXjIAHJvg1pW6xT?origin=share)
+OR
+https://app.eraser.io/workspace/mHp1buXjIAHJvg1pW6xT?origin=share
 
