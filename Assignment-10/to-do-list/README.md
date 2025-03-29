@@ -14,16 +14,6 @@ git clone <--Link-->
 cd to-do-list
 ```
 
-### Install Dependencies:
-```sh
-pip install -r requirements.txt
-```
-
-### Apply Migrations:
-```sh
-python manage.py migrate
-```
-
 ### Run the Server:
 ```sh
 python manage.py runserver
