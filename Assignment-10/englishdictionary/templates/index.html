@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Word</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
+
+        body {
+            background: #f2f2f2;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #00B4CC;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .searchTerm {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #00B4CC;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+            height: 44px;
+            box-sizing: border-box;
+        }
+
+        .searchButton {
+            width: 50px;
+            border: 2px solid #00B4CC;
+            background: #00B4CC;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 0 5px 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .searchButton:hover {
+            background: #008C99;
+        }
+
+        .fa-search {
+            font-size: 16px;
+        }
+
+        form {
+            display: flex;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Word Dictionary</h1>
+    <p>Type a word to find its meaning, synonyms, and antonyms.</p>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <form action="word">
+            <input type="text" name="search" class="searchTerm" placeholder="Enter a word...">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

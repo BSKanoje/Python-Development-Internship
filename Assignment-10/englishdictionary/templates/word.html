@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Meaning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
+
+        body {
+            background: #f2f2f2;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search form {
+            display: flex;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #00B4CC;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+            height: 44px; /* Matching button height */
+            box-sizing: border-box;
+        }
+
+        .search button {
+            width: 50px;
+            border: 2px solid #00B4CC;
+            background: #00B4CC;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 0 5px 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #00B4CC;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #444;
+            margin: 10px 0;
+        }
+
+        .word-box {
+            font-size: 22px;
+            font-weight: bold;
+            color: #222;
+            background: #e0f7fa;
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .synonyms, .antonyms {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .synonyms span, .antonyms span {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 6px 10px;
+            border-radius: 5px;
+            margin: 3px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .not-available {
+            color: #888;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Search Bar -->
+    <div class="search">
+        <form action="word">
+            <input type="text" name="search" class="searchTerm" placeholder="Input Your Word Here">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Display the searched word -->
+    <h2>Showing Meaning of: <span class="word-box">{{ word }}</span></h2>
+
+    <!-- Meaning -->
+    <h3>Meaning:</h3>
+    <p>{{ meaning }}</p>
+
+    <!-- Synonyms -->
+    <h3>Synonyms:</h3>
+    <div class="synonyms">
+        {% if synonyms and synonyms.0 != "Synonyms not available" %}
+            {% for synonym in synonyms %}
+                <span>{{ synonym }}</span>
+            {% endfor %}
+        {% else %}
+            <p class="not-available">Synonyms not available</p>
+        {% endif %}
+    </div>
+
+    <!-- Antonyms -->
+    <h3>Antonyms:</h3>
+    <div class="antonyms">
+        {% if antonyms and antonyms.0 != "Antonyms not available" %}
+            {% for antonym in antonyms %}
+                <span>{{ antonym }}</span>
+            {% endfor %}
+        {% else %}
+            <p class="not-available">Antonyms not available</p>
+        {% endif %}
+    </div>
+
+</div>
+
+</body>
+</html>
