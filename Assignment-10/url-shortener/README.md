@@ -12,7 +12,7 @@ A simple URL shortener built with Django that allows users to shorten long URLs 
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/your-username/url-shortener.git
+   git clone <--Link-->
    cd url-shortener
    ```
 
