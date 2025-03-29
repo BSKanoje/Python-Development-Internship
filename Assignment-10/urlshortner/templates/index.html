@@ -1,0 +1,129 @@
+<head>
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <style>
+      *,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+body,
+section {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1rem;
+}
+
+body {
+min-height: 100vh;
+font-family: "Lato", sans-serif;
+line-height: 1.5;
+color: #333;
+background: linear-gradient(135deg, #6A0572, #A4508B, #E0BBE4);
+}
+
+main {
+max-width: 720px;
+width: 100%;
+border: 3px solid #A4508B;
+border-radius: 12px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+background: linear-gradient(to right, #A4508B, #E0BBE4);
+padding: 20px;
+}
+
+h1 {
+padding: 1rem;
+color: #fff;
+text-align: center;
+font-weight: bold;
+}
+
+input,
+button {
+font-family: inherit;
+line-height: inherit;
+color: #333;
+border: 0;
+padding: 1rem;
+border-radius: 8px;
+font-size: 1rem;
+}
+
+input {
+box-sizing: border-box;
+width: 100%;
+margin-bottom: 10px;
+border: 2px solid #A4508B;
+outline: none;
+padding: 10px;
+}
+
+.buttons {
+display: flex;
+justify-content: center;
+}
+
+button {
+cursor: pointer;
+flex: 1;
+background: #6A0572;
+color: white;
+border: none;
+padding: 12px 18px;
+font-size: 1.2rem;
+font-weight: bold;
+border-radius: 10px;
+transition: background 0.3s ease, transform 0.2s ease;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+background: #C08497;
+transform: scale(1.05);
+}
+
+section {
+min-height: 120px;
+text-align: center;
+background: white;
+color: #A4508B;
+font-weight: bold;
+border-radius: 8px;
+padding: 20px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+  </style>
+</head>
+<main>
+<h1>URL Shortener</h1>
+<form id="post-form">
+  {% csrf_token %}
+<input type="text" name="link" id="link" placeholder="Enter URL here">
+<div class="buttons">
+  <button type="submit" id="shorten">Shorten</button>
+</div>
+</form>
+
+<section id="section"><h2></h2></section>
+  
+</main>
+
+<script type="text/javascript">
+$(document).on('submit','#post-form',function(e){
+  e.preventDefault();
+
+  $.ajax({
+    type:'POST',
+    url:'/create',
+    data:{
+      link:$('#link').val(),
+      csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+    },
+    success: function(data){
+      $('h2').html("localhost:8000/"+data)
+    }
+  });
+});
+</script>
